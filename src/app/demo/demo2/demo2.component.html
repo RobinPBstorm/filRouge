@@ -1,0 +1,13 @@
+<h1>Pipe</h1>
+<p>Formattage des texes</p>
+<p>{{ message | lowercase }}</p>
+<p>{{ message | uppercase }}</p>
+<p>{{ message | titlecase }}</p>
+
+<p>{{ somme | currency }}</p>
+<p>{{ somme | currency : '€' }}</p>
+
+<p>{{ aujourdhui | date : 'd/MM/yy' }}</p>
+
+<h3>Custom Pipe</h3>
+<p>{{ message | customPipe }}</p>
