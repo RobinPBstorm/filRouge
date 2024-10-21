@@ -1,0 +1,27 @@
+<h1>Les directives</h1>
+
+<h2>Les components directives</h2>
+<h3>ngModel → Two Way Binding </h3>
+<p>Bonjour, veuillez entrer votre prénom :</p>
+<input  type="text" placeholder="ex:Didier" [(ngModel)]="prenom">
+<!-- Si ngModel est souligné, c'est parce que cette Directive se trouve dans le module FormsModule de Angular, il faudra donc l'importer dans le module dans lequel est déclaré votre Composant -->
+
+<h3>ngStyle → Relier une(des) propriété(s) à du style inline (c'est toujours aussi peu recommandé qu'en html/css classique)</h3>
+<p [ngStyle]="{'backgroundColor': bgColor}" > Bonjour {{ prenom }}, quelle belle journée ! </p>
+
+<h3>ngClass → Relier une expression booléenne à une classe pour l'activer ou non</h3>
+<!-- [ngClass]={nomClasseÀAppliquer : expressionBooléenne} -->
+<p [ngClass]="{boring: selectedClass === 0, unicorn : selectedClass === 1, halloween : selectedClass === 2}">Kikou</p>
+
+<button (click)="changeClass(1)">Unicorn Style</button> 
+
+<button (click)="changeClass(2)">Halloween Style</button>
+
+<h2>Les structurals directives</h2>
+<h3>Anciennement ngIf → {{ '@if' }} </h3>
+
+<h3>Anciennement ngFor → {{ '@for' }} </h3>
+
+<h3>Anciennement ngSwitch → {{ '@switch' }} </h3>
+
+<h2>Les custom directives</h2>
