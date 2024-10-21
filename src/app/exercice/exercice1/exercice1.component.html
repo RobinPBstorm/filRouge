@@ -1,1 +1,11 @@
-<p>exercice1 works!</p>
+<h1>Exercice du Chrono</h1>
+
+<h2> {{ seconds | chrono : "short" }} </h2>
+
+<div>
+    <button class="btn" [disabled]="timer" (click)="start()" > Start </button>
+
+    <button class="btn" [disabled]="!timer"  (click)="pause()"> Pause </button>
+
+    <button class="btn" [disabled]="seconds === 0" (click)="reset()"> Reset </button>
+</div>

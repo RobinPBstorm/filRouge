@@ -53,6 +53,9 @@ main {
         color : var(--green);
         margin: 0.5rem 0;
     }
+    p {
+        margin: 0.5rem 0;
+    }
 
 }
 
@@ -83,4 +86,11 @@ input {
     margin : 0.5rem 1rem 0.5rem 0;
     padding: 0 0.5rem;
     border : 1px solid darkslateblue;
+
+
+    &:focus, &:active {
+        outline: none;
+        outline : 2px solid var(--green);
+        border-color : var(--green);
+    }
 }
