@@ -1,16 +1,16 @@
 <section>
  <h1>Data bindings</h1>
- <h3>Property bindings</h3>
+ <h2>Property bindings</h2>
  <p>Lien du typescript vers html uniquement</p>
  <p>Hello {{ world }}</p>
  <p>Lien bidrectionnel entre typescript et html</p>
  <input type="text" [(ngModel)]="world">
 
- <h3>Event bindings</h3>
+ <h2>Event bindings</h2>
  <p>{{ message }}</p>
- <button (click)="salutationFr()">FR</button>
- <button (click)="salutationEng()">EN</button>
+ <button class="btn" (click)="salutationFr()">FR</button>
+ <button class="btn" (click)="salutationEng()">EN</button>
 
- <h3>Attribute bindings</h3>
- <button (click)="salutationNl()" [disabled]="noNl">NL</button>
+ <h2>Attribute bindings</h2>
+ <button class="btn" (click)="salutationNl()" [disabled]="noNl">NL</button>
 </section>

@@ -1,7 +1,25 @@
-<ul>
- <li><a routerLink="/demo">Demo</a></li>
- <li><a routerLink="/demo/demo1">Demo1</a></li>
- <li><a routerLink="/demo/demo2">Demo2</a></li>
- <li><a routerLink="/exercice">Exercice</a></li>
- <li><a routerLink="/exercice/exercice1">Exercice</a></li>
-</ul>
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/demo">Demo</a>
+            <ul class="subnav">
+                <li>
+                    <a routerLink="/demo/demo1">Demo1</a>
+                </li>
+                <li>
+                    <a routerLink="/demo/demo2">Demo2</a>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <a routerLink="/exercice">Exercice</a>
+            <ul class="subnav">
+                <li>
+                    <a routerLink="/exercice/exercice1">Exercice</a>
+                </li>
+            </ul>
+        </li>
+        
+    </ul>
+</nav>
