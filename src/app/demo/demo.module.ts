@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { Demo2Component } from './demo2/demo2.component';
 import { CustomPipePipe } from './custom-pipe.pipe';
 import { Demo3Component } from './demo3/demo3.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { Demo3Component } from './demo3/demo3.component';
     CommonModule,
     DemoRoutingModule,
     FormsModule,
+    SharedModule
   ]
 })
 export class DemoModule { }

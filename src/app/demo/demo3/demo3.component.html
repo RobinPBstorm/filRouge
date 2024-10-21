@@ -19,9 +19,79 @@
 
 <h2>Les structurals directives</h2>
 <h3>Anciennement ngIf → {{ '@if' }} </h3>
+<!-- Version avec ngIf -->
+<p *ngIf="today.getDay() === 6 || today.getDay() === 0; else semaine">Youpi c'est le weekend !</p>
+<ng-template #semaine >
+    <p>Courage, c'est peut-être bientôt le weekend !</p>
+</ng-template>
 
-<h3>Anciennement ngFor → {{ '@for' }} </h3>
+<!-- Version avec @if -->
+@if(today.getDay() === 6 || today.getDay() === 0) {
+    <p>Youpi c'est le weekend !</p>
+}
+@else {
+    <p>Courage, c'est peut-être bientôt le weekend !</p>
+}
 
 <h3>Anciennement ngSwitch → {{ '@switch' }} </h3>
+<!-- Avec ngSwitch -->
+<input type="text" placeholder="Entrez un plat" [(ngModel)]="platDuJour">
+
+<div [ngSwitch]="platDuJour">
+    <div *ngSwitchCase="'burger'">Veuillez payer 4.50€</div>
+    <div *ngSwitchCase="'frites'">Veuillez payer 4€</div>
+    <div *ngSwitchCase="'pizza diavola'">Veuillez payer 10€</div>
+    <div *ngSwitchDefault>Nous n'avons pas cet article</div>
+</div>
+
+@if(platDuJour){
+    <p>Voici votre {{ platDuJour }} (sous réserve de disponibilité)</p>
+}
+
+<!-- Avec @switch -->
+@switch (platDuJour) {
+    @case('burger'){
+        <div>Veuillez payer 4.50€</div>
+    }
+    @case('frites'){
+        <div>Veuillez payer 4€</div>
+    }
+    @case('pizza diavola'){
+        <div>Veuillez payer 10€</div>
+    }
+    @default {
+        <div>Nous n'avons pas cet article</div>
+    }
+} 
+
+<h3>Anciennement ngFor → {{ '@for' }} </h3>
+<!-- Version ngFor -->
+<div *ngFor="let trainer of trainersLight; let numero = index">
+    <p> {{numero}} - {{ trainer }} </p>
+</div>
+<div *ngIf="trainersLight.length === 0">Pas de formateurs aujourd'hui</div>
+
+<!-- Version @for -->
+@for(trainer of trainersLight; track $index){
+    <p>{{$index}} - {{ trainer }}</p>
+}
+@empty {
+    <div>Pas de formateurs aujourd'hui</div>
+}
+
+<!-- Version plus complète -->
+@for(trainer of trainers; track trainer.id){
+    <div [ngClass]="{girl : trainer.gender === 'f', boy : trainer.gender === 'm'}"  class="card">
+        <p>{{ trainer.firstName }} {{ trainer.lastName }}</p>
+        <img [src]="'assets/images/'+trainer.avatar" [alt]="'avatar de'+trainer.firstName">
+        @if(trainer.birthdate){
+            <p> Date de naissance : {{ trainer.birthdate | date : 'dd/MM/yyyy' }} </p>
+        }
+        @else {
+            <p>Date de naissance inconnue</p>
+        }
+    </div>
+}
 
 <h2>Les custom directives</h2>
+<p>Dans ma ferme, il y a des <span sound="/assets/audios/dog.wav">chiens</span>. Il y a aussi des <span sound="/assets/audios/cat.wav">chats</span> mais également des <span sound="/assets/audios/ducks.wav">canards</span>.</p>

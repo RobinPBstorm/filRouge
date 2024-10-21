@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterLink } from '@angular/router';
 import { ChronoPipe } from './pipes/chrono.pipe';
+import { SoundDirective } from './directives/sound.directive';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    ChronoPipe
+    ChronoPipe,
+    SoundDirective
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { ChronoPipe } from './pipes/chrono.pipe';
   ],
   exports:[
     NavbarComponent,
-    ChronoPipe
+    ChronoPipe,
+    SoundDirective
   ]
 })
 export class SharedModule { }
